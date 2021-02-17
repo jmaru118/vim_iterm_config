@@ -21,4 +21,8 @@ cp .vimrc ~/.vimrc
 mkdir -p ~/.config/nvim/
 cp init.vim ~/.config/nvim/init.vim
 
-echo "Don't forget to configure iterm with a powerline font, change the ZSH_THEME in .zshrc to agnoster and run PlugInstall in nvim"
+sed -i '' 's/ZSH_THEME=\"robbyrussell\"/ZSH_THEME="agnoster"/' .zshrc
+source ~/.zshrc
+nvim +'PlugInstall --sync' +qa
+
+echo "Don't forget to configure iterm with a powerline font"
